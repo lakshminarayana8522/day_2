@@ -8,69 +8,70 @@
 #include <linux/input.h>
 #include <asm/io.h>
 
-#define TIMEOUT 20000
+#define TIMEOUT_1 20000
+#define TIMEOUT_2 10000
 
 static struct timer_list my_timer;
 static struct input_dev *my_dev;
 
 void timer_callback(struct timer_list *data)
 {
-	input_report_key(my_dev,KEY_A,inb(0x60) & 0x80);
-	input_report_key(my_dev,KEY_A,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_B,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_B,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_C,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_C,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_D,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_D,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_E,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_E,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_F,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_F,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_G,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_G,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_H,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_H,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_I,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_I,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_J,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_J,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_K,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_K,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_L,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_L,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_M,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_M,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_N,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_N,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_O,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_O,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_P,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_P,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_Q,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_Q,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_R,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_R,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_S,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_S,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_T,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_T,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_U,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_U,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_V,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_V,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_W,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_W,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_X,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_X,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_Y,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_Y,inb(0x60) & 0x7f);
-	input_report_key(my_dev,KEY_Z,inb(0x60) & 0x80);
-        input_report_key(my_dev,KEY_Z,inb(0x60) & 0x7f);
+	input_report_key(my_dev,KEY_A,1);
+	input_report_key(my_dev,KEY_A,0);
+	input_report_key(my_dev,KEY_B,1);
+        input_report_key(my_dev,KEY_B,0);
+	input_report_key(my_dev,KEY_C,1);
+        input_report_key(my_dev,KEY_C,0);
+	input_report_key(my_dev,KEY_D,1);
+        input_report_key(my_dev,KEY_D,0);
+	input_report_key(my_dev,KEY_E,1);
+        input_report_key(my_dev,KEY_E,0);
+	input_report_key(my_dev,KEY_F,1);
+        input_report_key(my_dev,KEY_F,0);
+	input_report_key(my_dev,KEY_G,1);
+        input_report_key(my_dev,KEY_G,0);
+	input_report_key(my_dev,KEY_H,1);
+        input_report_key(my_dev,KEY_H,0);
+	input_report_key(my_dev,KEY_I,1);
+        input_report_key(my_dev,KEY_I,0);
+	input_report_key(my_dev,KEY_J,1);
+        input_report_key(my_dev,KEY_J,0);
+	input_report_key(my_dev,KEY_K,1);
+        input_report_key(my_dev,KEY_K,0);
+	input_report_key(my_dev,KEY_L,1);
+        input_report_key(my_dev,KEY_L,0);
+	input_report_key(my_dev,KEY_M,1);
+        input_report_key(my_dev,KEY_M,0);
+	input_report_key(my_dev,KEY_N,1);
+        input_report_key(my_dev,KEY_N,0);
+	input_report_key(my_dev,KEY_O,1);
+        input_report_key(my_dev,KEY_O,0);
+	input_report_key(my_dev,KEY_P,1);
+        input_report_key(my_dev,KEY_P,0);
+	input_report_key(my_dev,KEY_Q,1);
+        input_report_key(my_dev,KEY_Q,0);
+	input_report_key(my_dev,KEY_R,1);
+        input_report_key(my_dev,KEY_R,0);
+	input_report_key(my_dev,KEY_S,1);
+        input_report_key(my_dev,KEY_S,0);
+	input_report_key(my_dev,KEY_T,1);
+        input_report_key(my_dev,KEY_T,0);
+	input_report_key(my_dev,KEY_U,1);
+        input_report_key(my_dev,KEY_U,0);
+	input_report_key(my_dev,KEY_V,1);
+        input_report_key(my_dev,KEY_V,0);
+	input_report_key(my_dev,KEY_W,1);
+        input_report_key(my_dev,KEY_W,0);
+	input_report_key(my_dev,KEY_X,1);
+        input_report_key(my_dev,KEY_X,0);
+	input_report_key(my_dev,KEY_Y,1);
+        input_report_key(my_dev,KEY_Y,0);
+	input_report_key(my_dev,KEY_Z,1);
+        input_report_key(my_dev,KEY_Z,0); 
 	input_sync(my_dev);
 	
 
-	mod_timer(&my_timer,jiffies+msecs_to_jiffies(TIMEOUT));
+	mod_timer(&my_timer,jiffies+msecs_to_jiffies(TIMEOUT_2));
 }
 
 
@@ -100,17 +101,13 @@ static int my_timer_init(void)
 	set_bit(KEY_S,my_dev->keybit);
 	set_bit(KEY_T,my_dev->keybit);
 	set_bit(KEY_U,my_dev->keybit);
-	set_bit(KEY_V,my_dev->keybit);
-	set_bit(KEY_W,my_dev->keybit);
-	set_bit(KEY_X,my_dev->keybit);
-	set_bit(KEY_Y,my_dev->keybit);
-	set_bit(KEY_Z,my_dev->keybit);
+
 
 	input_register_device(my_dev);
 
 
 	timer_setup(&my_timer,timer_callback,0);
-	mod_timer(&my_timer,msecs_to_jiffies(TIMEOUT));
+	mod_timer(&my_timer,msecs_to_jiffies(TIMEOUT_1));
 	pr_info("timer module is loaded into kernel..\n");
 	return 0;
 }
